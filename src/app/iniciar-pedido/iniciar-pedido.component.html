@@ -1,0 +1,34 @@
+<h1 class="titulo">
+  Empanadas TOTO
+</h1>
+<div>
+  <input type="text" [(ngModel)]="gustoABuscar" class="form-control" placeholder="Ingrese un valor a buscar">
+</div>
+  <!-- <div class="alert alert-danger" *ngIf="mensajeError">
+  Error:
+      <span >Debe pedir un mínimo de 4 Empanadas</span>
+  </div>  -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Gusto</th>
+      <th>Cantidad</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let gusto of gustosDisponibles | filtroGusto: gustoABuscar">
+    <tr>
+      <td>{{gusto.descripcion}}</td>
+      <td>
+        <button (click)="restar(gusto)" [disabled]="noPuedeSerMenorACero(gusto)">
+          <<
+        </button> 
+        {{gusto.cantidad}} 
+        <button (click)="sumar(gusto)">
+          >>
+        </button></td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="aceptar()" routerLink="/finalizar-pedido">Finalizar pedido</button>
+
+<router-outlet></router-outlet>

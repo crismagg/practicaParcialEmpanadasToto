@@ -1,0 +1,14 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Gusto</th>
+      <th>Cantidad</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let gusto of gustosPedidos">
+      <tr>
+        <td>{{gusto.descripcion}}</td>
+        <td>{{gusto.cantidad}}</td>
+      </tr>
+  </tbody>
+</table>
